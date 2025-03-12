@@ -10,8 +10,8 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="relative">
-      <HeroSection/>
       <BackgroundBeamsWithCollisionDemo/>
+      <HeroSection/>
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
     </div>

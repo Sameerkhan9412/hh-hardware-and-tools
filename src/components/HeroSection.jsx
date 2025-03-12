@@ -16,7 +16,7 @@ const HeroSection = () => {
   ];
 
   return (
-    <div className="w-full overflow-hidden h-[90vh]">
+    <div className="w-full overflow-hidden h-[80vh]">
       <Swiper
         spaceBetween={50}
         loop={true}

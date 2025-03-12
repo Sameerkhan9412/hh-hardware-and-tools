@@ -81,7 +81,7 @@ export const Carousel = ({
     (<CarouselContext.Provider value={{ onCardClose: handleCardClose, currentIndex }}>
       <div className="relative w-full">
         <div
-          className="flex w-full overflow-x-scroll overscroll-x-auto py-10 md:py-20 scroll-smooth [scrollbar-width:none]"
+          className="flex w-full overflow-x-scroll overscroll-x-auto py-5 md:py-5 scroll-smooth [scrollbar-width:none]"
           ref={carouselRef}
           onScroll={checkScrollability}>
           <div
@@ -213,7 +213,7 @@ export const Card = ({
     <motion.button
       layoutId={layout ? `card-${card.title}` : undefined}
       onClick={handleOpen}
-      className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[40rem] md:w-96 overflow-hidden flex flex-col items-start justify-start relative z-10">
+      className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[24rem] md:w-80 overflow-hidden flex flex-col items-start justify-start relative z-10">
       <div
         className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
       <div className="relative z-40 p-8">
@@ -248,7 +248,7 @@ export const BlurImage = ({
   const [isLoading, setLoading] = useState(true);
   return (
     (<img
-      className={cn("transition duration-300 h-full w-full object-cover", isLoading ? "blur-sm" : "blur-0", className)}
+      className={cn("transition duration-300 h-full w-full object-fit", isLoading ? "blur-sm" : "blur-0", className)}
       onLoad={() => setLoading(false)}
       src={src}
       width={width}
