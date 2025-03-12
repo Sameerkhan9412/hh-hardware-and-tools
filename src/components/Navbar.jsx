@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0">
+    <nav className="sticky top-0 z-50 bg-white">
       <div className="container  flex h-14 items-center justify-between px-2 max-w-7xl mx-auto">
         {/* Left side with logo and hamburger menu */}
         <div className="flex items-center gap-2">
