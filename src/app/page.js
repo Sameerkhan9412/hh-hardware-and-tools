@@ -2,6 +2,7 @@ import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWi
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import Navbar from "@/components/Navbar";
+import { ProductCategory } from "@/components/ProductsCategory";
 import { TypewriterEffectSmoothDemo } from "@/components/TypewriterEffectSmoothDemo";
 import Image from "next/image";
 import Link from "next/link";
@@ -11,6 +12,7 @@ export default function Home() {
     <div className="relative">
       <HeroSection/>
       <BackgroundBeamsWithCollisionDemo/>
+      <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
     </div>
   );
