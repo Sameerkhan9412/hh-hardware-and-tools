@@ -97,13 +97,14 @@ export default function Navbar() {
         </div>
 
         {/* Navigation links in the middle - hidden on mobile */}
-        <div className="hidden md:flex items-center justify-center gap-6 font-medium">
-          <Link href="/" className="text-sm  transition-colors hover:text-primary">
+        {/* <div className="hidden md:flex items-center justify-center gap-6 font-medium"> */}
+        <div className="flex justify-center items-center">
+          <Link href="/" className="text-sm  transition-colors text-primary">
             Home
           </Link>
 
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm   transition-colors hover:text-primary">
+          <DropdownMenu className={''}>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm   transition-colors text-primary">
               Category
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -123,21 +124,21 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/about" className="text-sm   transition-colors hover:text-primary">
+          <Link href="/about" className="text-sm   transition-colors text-primary">
             About
           </Link>
 
-          <Link href="/contact" className="text-sm   transition-colors hover:text-primary">
+          <Link href="/contact" className="text-sm   transition-colors text-primary">
             Contact Us
           </Link>
         </div>
 
         {/* Login/Signup buttons on the right - visible on all screen sizes */}
         <div className="flex items-center gap-4">
-          <Button onClick={()=>router.push('/login')} variant="outline" size="icon" className="cursor-pointer px-8 hover:bg-amber-300 hover:text-black transition">
+          <Button onClick={()=>router.push('/login')} variant="outline" size="icon" className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition">
             Login
           </Button>
-          <Button size="icon" variant="ghost" className=" cursor-pointer px-8 hover:bg-gray-200 hover:text-black transition">
+          <Button size="icon" variant="ghost" className=" cursor-pointer px-8 hover:bg-[#E63946] border-2 border-[#E63946] hover:text-black transition">
             Sign Up
           </Button>
         </div>
