@@ -15,7 +15,7 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 bg-white">
+    <nav className="sticky top-0 z-50 bg-white text-black font-bold">
       <div className="container  flex h-14 items-center justify-between px-2 max-w-7xl mx-auto">
         {/* Left side with logo and hamburger menu */}
         <div className="flex items-center gap-2">
@@ -31,14 +31,14 @@ export default function Navbar() {
               <div className="flex flex-col gap-6 pt-6">
                 <Link
                   href="/"
-                  className="text-sm font-medium transition-colors hover:text-primary"
+                  className="text-sm   transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   Home
                 </Link>
 
                 <div className="space-y-3">
-                  <div className="font-medium text-sm cursor-pointer">Category</div>
+                  <div className="  text-sm cursor-pointer">Category</div>
                   <div className="pl-4 space-y-2">
                     <Link
                       href="/category/1"
@@ -73,7 +73,7 @@ export default function Navbar() {
 
                 <Link
                   href="/about"
-                  className="text-sm font-medium transition-colors hover:text-primary"
+                  className="text-sm   transition-colors hover:text-primary hover:text-red-700"
                   onClick={() => setIsOpen(false)}
                 >
                   About
@@ -81,7 +81,7 @@ export default function Navbar() {
 
                 <Link
                   href="/contact"
-                  className="text-sm font-medium transition-colors hover:text-primary"
+                  className="text-sm   transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   Contact Us
@@ -97,13 +97,13 @@ export default function Navbar() {
         </div>
 
         {/* Navigation links in the middle - hidden on mobile */}
-        <div className="hidden md:flex items-center justify-center gap-6">
-          <Link href="/" className="text-sm font-medium transition-colors hover:text-primary">
+        <div className="hidden md:flex items-center justify-center gap-6 font-medium">
+          <Link href="/" className="text-sm  transition-colors hover:text-primary">
             Home
           </Link>
 
           <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium transition-colors hover:text-primary">
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm   transition-colors hover:text-primary">
               Category
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
@@ -123,11 +123,11 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/about" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/about" className="text-sm   transition-colors hover:text-primary">
             About
           </Link>
 
-          <Link href="/contact" className="text-sm font-medium transition-colors hover:text-primary">
+          <Link href="/contact" className="text-sm   transition-colors hover:text-primary">
             Contact Us
           </Link>
         </div>
