@@ -9,10 +9,10 @@ export function ProductCategory() {
   ));
 
   return (
-    (<div className="w-full h-full py-5 bg-black">
+    (<div className="w-full h-full py-5 bg-[#1D3557]">
       <h2
         className="max-w-7xl pl-4 mx-auto text-xl md:text-3xl font-bold text-neutral-800 dark:text-neutral-200 font-sans">
-        Explore Products Cateogory
+        Explore Files Category
       </h2>
       <Carousel items={cards} />
     </div>)

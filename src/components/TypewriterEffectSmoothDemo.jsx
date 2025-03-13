@@ -14,7 +14,7 @@ export function TypewriterEffectSmoothDemo() {
     }
   ];
   return (
-    (<div className="flex flex-col items-center justify-center h-fit bg-black py-4 rounded-md ">
+    (<div className="flex flex-col items-center justify-center h-fit bg-[#E63946] rounded-tr-4xl rounded-bl-full py-10">
       <p className="text-neutral-600 dark:text-neutral-200 text-2xl font-bold  ">
         Explore Our Products And Services
       </p>
