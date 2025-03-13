@@ -1,6 +1,7 @@
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollisionDemo";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
+import { LensDemo } from "@/components/Lensdemo";
 import Navbar from "@/components/Navbar";
 import { ProductCategory } from "@/components/ProductsCategory";
 import { TypewriterEffectSmoothDemo } from "@/components/TypewriterEffectSmoothDemo";
@@ -14,6 +15,7 @@ export default function Home() {
       <HeroSection/>
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
+      <LensDemo/>
     </div>
   );
 }

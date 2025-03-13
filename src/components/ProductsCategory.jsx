@@ -1,4 +1,4 @@
-"use client";
+// "use client";
 import Image from "next/image";
 import React from "react";
 import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
@@ -37,7 +37,7 @@ const DummyContent = () => {
             thought.
           </p>
           <Image
-            src="https://assets.aceternity.com/macbook.png"
+            src="https://res.cloudinary.com/sameerkhan/image/upload/v1741689033/hhhardware/file5_nzoij8.jpg"
             alt="Macbook mockup from Aceternity UI"
             height="500"
             width="500"

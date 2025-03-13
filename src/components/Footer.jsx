@@ -5,7 +5,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <div>
-        <Link href={"/about"}>clikc me</Link>
+        <Link href={"/about"}>I am footer</Link>
     </div>
   )
 }
