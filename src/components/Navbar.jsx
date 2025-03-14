@@ -98,7 +98,7 @@ export default function Navbar() {
 
         {/* Navigation links in the middle - hidden on mobile */}
         {/* <div className="hidden md:flex items-center justify-center gap-6 font-medium"> */}
-        <div className="flex justify-center items-center">
+        <div className=" flex justify-center items-center max-sm:hidden">
           <Link href="/" className="text-sm  transition-colors text-primary">
             Home
           </Link>

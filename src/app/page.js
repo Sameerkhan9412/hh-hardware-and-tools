@@ -2,6 +2,7 @@ import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWi
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ProductCategory } from "@/components/ProductsCategory";
+import { Reviews } from "@/components/Reviews";
 import { TypewriterEffectSmoothDemo } from "@/components/TypewriterEffectSmoothDemo";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
       <HeroSection/>
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
+      {/* <Reviews className={"w-screen bg-black"}/> */}
     </div>
   );
 }
