@@ -8,7 +8,7 @@ const Contact = () => {
     <div className=" mx-auto relative min-h-screen">
       <div className="relative px-8 ">
         <div className="flex max-w-7xl mx-auto my-4 items-center flex-col lg:flex-row ">
-          <div className=" text-[#1F2937] px-4 flex flex-col items-start w-full lg:w-3/5  ">
+          <div className=" text-[#1D3557] px-4 flex flex-col items-start w-full lg:w-3/5  ">
             <h1 className="text-2xl  font-extrabold mb-6">Get in touch</h1>
             <h2 className="md:text-2xl">
               Want to get in touch? We'd love to hear from you.
@@ -20,21 +20,21 @@ const Contact = () => {
 
         <div className=" max-w-7xl mx-auto grid grid-cols-1 gap-8 text-black items-center justify-center h-fit pb-8 md:grid-cols-2 ">
           <div className="shadow-[0px_10px_20px_rgba(0,0,0,1)] px-4 py-8 flex flex-col gap-2 items-center justify-center h-fit rounded-lg bg-white">
-            <FaPhone className="text-4xl text-red-600 rotate-90" />
+            <FaPhone className="text-4xl text-[#1D3557] rotate-90" />
             <h3 className="  font-bold">Talk to Sales</h3>
             <span className="text-center">
               Just pick up the phone to chat with a
               member of our  team.
             </span>
-            <span className="text-red-600 font-bold">7895680679</span>
+            <span className="text-[#1D3557] font-bold">7895680679</span>
           </div>
           <div className="shadow-[0px_10px_20px_rgba(0,0,0,1)] px-4 py-8 flex flex-col gap-2 items-center justify-center h-full rounded-lg bg-white">
-            <FaHeadphonesSimple className="text-4xl text-red-600" />
+            <FaHeadphonesSimple className="text-4xl text-[#1D3557]" />
             <h3 className="font-bold">Contact Customer Support</h3>
             <span className="text-center">
               Need a little help? Our support team is here for you.
             </span>
-            <span className="bg-red-600 text-white font-bold cursor-pointer py-2 px-4 rounded-lg transition-colors hover:bg-red-400">
+            <span className="bg-[#1D3557] text-white font-bold cursor-pointer py-2 px-4 rounded-lg transition-colors hover:bg-red-400">
               Contact Support
             </span>
           </div>
