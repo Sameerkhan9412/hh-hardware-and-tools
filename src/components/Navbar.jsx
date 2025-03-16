@@ -20,7 +20,7 @@ export default function Navbar() {
         {/* Left side with logo and hamburger menu */}
         <div className="flex items-center gap-2">
           {/* Mobile menu button - visible only on mobile */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen}>
+          <Sheet open={isOpen} onOpenChange={setIsOpen} className={""}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
@@ -73,7 +73,7 @@ export default function Navbar() {
 
                 <Link
                   href="/about"
-                  className="text-sm   transition-colors hover:text-primary hover:text-red-700"
+                  className="text-sm   transition-colors hover:text-primary hover:bg-[#1D3557]"
                   onClick={() => setIsOpen(false)}
                 >
                   About
@@ -138,7 +138,7 @@ export default function Navbar() {
           <Button onClick={()=>router.push('/login')} variant="outline" size="icon" className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition">
             Login
           </Button>
-          <Button size="icon" variant="ghost" className=" cursor-pointer px-8 hover:bg-[#E63946] border-2 border-[#E63946] hover:text-black transition">
+          <Button size="icon" variant="ghost" className=" cursor-pointer px-8 hover:bg-[#457B9D] hover:text-white border-2 border-[#457B9D] transition">
             Sign Up
           </Button>
         </div>

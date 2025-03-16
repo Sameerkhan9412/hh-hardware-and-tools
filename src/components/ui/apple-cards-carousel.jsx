@@ -176,7 +176,7 @@ export const Card = ({
   };
 
   return (<>
-  <Link href={"/products" }>
+  <Link href={`/products` }>
     <motion.button
       layoutId={layout ? `card-${card.title}` : undefined}
       onClick={handleOpen}
@@ -196,7 +196,7 @@ export const Card = ({
         </motion.p>
       </div>
       <BlurImage
-        src={card.src}
+        src={card.categoryImage}
         alt={card.title}
         fill
         className="object-cover absolute z-10 inset-0" />
@@ -216,7 +216,7 @@ export const BlurImage = ({
   const [isLoading, setLoading] = useState(true);
   return (
     (<Image
-      className={cn("transition duration-300 h-full w-full object-fit", isLoading ? "blur-sm" : "blur-0", className)}
+      className={cn("transition duration-300 h-full w-full object-contain", isLoading ? "blur-sm" : "blur-0", className)}
       onLoad={() => setLoading(false)}
       src={src}
       width={width}

@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { Lens } from "./ui/lens";
 import ColourfulText from "./ui/colourful-text";
-const images=[
-  "https://m.media-amazon.com/images/I/61Nu5cgpOzL._SL1500_.jpg","https://m.media-amazon.com/images/I/71G2ZvbXv2L._SL1500_.jpg","https://m.media-amazon.com/images/I/61TFoKSQ-dL._SL1500_.jpg"
-]
+// const images=[
+//   "https://m.media-amazon.com/images/I/61Nu5cgpOzL._SL1500_.jpg","https://m.media-amazon.com/images/I/71G2ZvbXv2L._SL1500_.jpg","https://m.media-amazon.com/images/I/61TFoKSQ-dL._SL1500_.jpg"
+// ]
 
-const Product = ({index}) => {
-    const [currImage, setCurrImage] = useState(images[0]);
+const ProductCard = ({product,index}) => {
+    const [currImage, setCurrImage] = useState(product.images[0]);
     const [hovering, setHovering] = useState(false);
   return (
     <div className="px-10 text-[#1D3557]">
@@ -27,7 +27,7 @@ const Product = ({index}) => {
             </Lens>
           </div>
           <div className="grid gap-2 ">
-            {images.map((image, i) => (
+            {product.images.map((image, i) => (
               <div
                 onClick={() => setCurrImage(image)}
                 key={i}
@@ -48,16 +48,7 @@ const Product = ({index}) => {
             <ColourfulText text={"Double-ended Screwdriver"} />
           </h2>
           <div className="mt-4 relative z-20 text-sm text-[#1D3557] font-semibold">
-            JKSD 4”x12T TCT Blade Pro is engineered for exceptional performance
-            and durability. This blade ensures long-lasting efficiency and
-            reliability. Its unique profile precision sawing technology
-            guarantees clean, accurate cuts with minimal effort, while the
-            innovative design minimizes chip wastage, making the most out of
-            every material. Ideal for professional carpenters and woodworkers,
-            this blade enhances cutting precision and material efficiency,
-            providing superior results for various cutting tasks. Upgrade your
-            toolkit with the 4”x12T TCT Blade for superior cutting performance
-            and reduced waste.
+            {product.description}
           </div>
           {/* </CardSpotlight> */}
         </div>
@@ -90,4 +81,4 @@ const Product = ({index}) => {
   );
 };
 
-export default Product;
+export default ProductCard;

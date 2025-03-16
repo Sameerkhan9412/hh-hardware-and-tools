@@ -48,7 +48,7 @@ const DummyContent = () => {
   </>);
 };
 
-const data = [
+const data2 = [
   {
     category: "Artificial Intelligence",
     title: "You can do more with AI.",
@@ -87,3 +87,52 @@ const data = [
     content: <DummyContent />,
   },
 ];
+
+
+const data=[
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129278/hhhardware/Flat_Bastard_File__56812.1570197550_jdhqdo.jpg",
+    title:"Flat Files",
+    path:"flat-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129413/hhhardware/169ff4560acb473f_bvp9tq.png",
+    title:"Hand Files",
+    path:"hand-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129535/hhhardware/image_12777_oolofi.jpg",
+    title:"Half Round Files",
+    path:"half-round-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129616/hhhardware/31rvBUAaldL._AC_UF894_1000_QL80__xzmoax.jpg",
+    title:"Round Files",
+    path:"round-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129710/hhhardware/Th.Square-Machinist-with-Handle_qymd3g.jpg",
+    title:"Square Files",
+    path:"square-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742129797/hhhardware/51eKeT6V5SL_vxmbtm.jpg",
+    title:"Triangle Files",
+    path:"triangle-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742130035/hhhardware/230-326_a04ytw.jpg",
+    title:"Pillar Narrow Files",
+    path:"pillar-narrow-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742130107/hhhardware/NIC_16663_FRNT_MAIN_hjx35r.jpg",
+    title:"Warding Files",
+    path:"warding-files"
+  },
+  {
+    categoryImage:"https://res.cloudinary.com/sameerkhan/image/upload/v1742130171/hhhardware/knife-edge-jewelry-file-31.182__27383.1658872014_qwnaji.jpg",
+    title:"Knife Files",
+    path:"knife-files"
+  }
+]

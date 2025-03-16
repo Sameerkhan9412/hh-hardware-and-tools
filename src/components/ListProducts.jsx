@@ -4,7 +4,7 @@ import { Lens } from "./ui/lens";
 import { Button } from "./ui/moving-border";
 import { CardSpotlight } from "./ui/card-spotlight";
 import ColourfulText from "./ui/colourful-text";
-import Product from "./Product";
+import Product from "./ProductCard";
 
 const ListProducts = () => {
   return (
