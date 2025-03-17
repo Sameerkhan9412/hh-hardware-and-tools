@@ -3,7 +3,7 @@ import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-w
 
 export function BackgroundBeamsWithCollisionDemo() {
   return (
-    (<BackgroundBeamsWithCollision className={"h-96 rounded-t-2xl bg-[#1D3557]"} >
+    (<BackgroundBeamsWithCollision className={"h-96 rounded-t-2xl"} >
       <h2
         className="text-2xl relative z-20 md:text-4xl lg:text-5xl font-bold text-center text-black dark:text-white font-sans tracking-tight">
         Welcome To World Class <b className="bg-gradient-to-r py-4 from-purple-500 via-violet-500 to-pink-500 [text-shadow:0_0_rgba(0,0,0,0.1)] rounded-4xl">Files</b>, H.H <br/>

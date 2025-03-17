@@ -5,7 +5,11 @@ import { Button } from "./ui/moving-border";
 import { CardSpotlight } from "./ui/card-spotlight";
 import ColourfulText from "./ui/colourful-text";
 import Product from "./ProductCard";
-
+const productWithCategory=[
+  {
+    category:""
+  }
+]
 const ListProducts = () => {
   return (
     <div>

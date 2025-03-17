@@ -18,6 +18,7 @@ import Image from "next/image";
 // import { useOutsideClick } from "@/hooks/use-outside-click";
 import { useOutsideClick } from "../../../hooks/use-outside-click";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 
 export const CarouselContext = createContext({
@@ -143,6 +144,7 @@ export const Card = ({
   index,
   layout = false
 }) => {
+  const router=useRouter();
   const [open, setOpen] = useState(false);
   const containerRef = useRef(null);
   const { onCardClose, currentIndex } = useContext(CarouselContext);
@@ -166,6 +168,10 @@ export const Card = ({
 
   useOutsideClick(containerRef, () => handleClose());
 
+  const handleNavigate=({path})=>{
+    console.log("path",path)
+    router.push("products/"+path);
+  }
   const handleOpen = () => {
     setOpen(true);
   };
@@ -176,10 +182,9 @@ export const Card = ({
   };
 
   return (<>
-  <Link href={`/products` }>
     <motion.button
       layoutId={layout ? `card-${card.title}` : undefined}
-      onClick={handleOpen}
+      onClick={()=>handleNavigate(card)}
       className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-80 w-56 md:h-[24rem] md:w-80 overflow-hidden flex flex-col items-start justify-start relative z-10 cursor-pointer">
       <div
         className="absolute h-full top-0 inset-x-0 bg-gradient-to-b from-black/50 via-transparent to-transparent z-30 pointer-events-none" />
@@ -201,7 +206,6 @@ export const Card = ({
         fill
         className="object-cover absolute z-10 inset-0" />
     </motion.button>
-    </Link>
   </>);
 };
 

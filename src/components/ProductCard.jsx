@@ -45,7 +45,7 @@ const ProductCard = ({product,index}) => {
         <div className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
           {/* <CardSpotlight className="h-full w-full"> */}
           <h2 className="text-2xl font-bold relative z-20 mt-2 space-x-0.5">
-            <ColourfulText text={"Double-ended Screwdriver"} />
+            <ColourfulText text={product.name} />
           </h2>
           <div className="mt-4 relative z-20 text-sm text-[#1D3557] font-semibold">
             {product.description}
@@ -64,16 +64,6 @@ const ProductCard = ({product,index}) => {
               Hardened tip to avoid breakage, slipping and twisting.
             </li>
           ))}
-        </div>
-        <h2 className="text-2xl  font-bold space-x-1 underline my-2">
-          <ColourfulText text={"Specifications"} />
-        </h2>
-        <div className="w-full flex justify-center  ">
-          <img
-            src="https://jksuperdrive.com/wp-content/uploads/2021/07/Half-Round-Machinist-1.jpg"
-            alt=""
-            className="w-96"
-          />
         </div>
       </div>
       <div className="h-2 w-[70%] bg-[#1D3557] mx-auto my-5 rounded-full"></div>
