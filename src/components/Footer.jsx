@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* About Us Column */}
           <div>
             <h3 className="text-[#457B9D] font-semibold text-xl mb-4">About Us</h3>
@@ -195,7 +195,7 @@ export default function Footer() {
           </div>
 
           <p className="text-center text-sm mb-4">
-            Address: Peer Atoullah, Near Water Tank , Uppar Fort,Aligarh-202001 (INDIA) | Email: H.Hfiles@gmail.in
+            Address: Peer Atoullah, Near Water Tank , Uppar Fort,Aligarh-202001 (INDIA) | Email: anasmohd889@gmail.com
           </p>
 
           <p className="text-center text-sm border-t border-gray-800 pt-4 w-full">

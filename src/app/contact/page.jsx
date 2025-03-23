@@ -26,7 +26,7 @@ const Contact = () => {
               Just pick up the phone to chat with a
               member of our  team.
             </span>
-            <span className="text-[#1D3557] font-bold">7895680679</span>
+            <span className="text-[#1D3557] font-bold">8077351916</span>
           </div>
           <div className="shadow-[0px_10px_20px_rgba(0,0,0,1)] px-4 py-8 flex flex-col gap-2 items-center justify-center h-full rounded-lg bg-white">
             <FaHeadphonesSimple className="text-4xl text-[#1D3557]" />
@@ -56,15 +56,15 @@ const Contact = () => {
 
             <div className="flex flex-col ">
             <span>Address:</span>
-            <span>S.S Nagar, Aligarh (U.P) 202122, India</span>
+            <span>Peer Atoullah, Near Water Tank , Uppar Fort,Aligarh-202001 (INDIA)</span>
             </div>
             <div className="flex flex-col">
             <span>Phone:</span>
-            <span>7895680679</span>
+            <span>8077351916</span>
             </div>
             <div className="flex flex-col">
             <span>Email:</span>
-            <span>solveurprobiz@gmail.com</span>
+            <span>anasmohd889@gmail.com</span>
             </div>
             </div>
         </div>
@@ -82,13 +82,13 @@ const Contact = () => {
             <label htmlFor="mobile">Mobile <br/>
               <input type="tel" placeholder="+1 234 567 890" pattern="[+0-9\s-]+"  id="mobile" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
             </label>
-            <label htmlFor="class">Class<br/>
-              <input type="text"  id="class" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="12th" />
+            <label htmlFor="product">Product<br/>
+              <input type="text"  id="product" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="files" />
             </label>
           </div>
           <div className="grid grid-cols-1 gap-4 mt-4">
-            <label htmlFor="subject">Subject <br/>
-              <input type="text" placeholder="Mathmatics,Physics,Biology etc"  id="subject" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
+            <label htmlFor="subject">Location <br/>
+              <input type="text" placeholder="uttar pradesh, aligarh"  id="subject" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
             </label>
           </div>
           <div className="grid grid-cols-1 gap-4 mt-4">
