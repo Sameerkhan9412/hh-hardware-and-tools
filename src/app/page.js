@@ -11,7 +11,6 @@ export default function Home() {
     <div className="relative">
       <BackgroundBeamsWithCollisionDemo/>
       <HeroSection/>
-      <Link href={"products"}>click me</Link>
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
       {/* <Reviews className={"w-screen bg-black"}/> */}
