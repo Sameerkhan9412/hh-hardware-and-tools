@@ -1,18 +1,24 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
-import { ChevronDown, Menu } from "lucide-react"
+import { useState } from "react";
+import Link from "next/link";
+import { ChevronDown, Menu } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 
-import { Button } from "@/components/ui/button"
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
-import { useRouter } from "next/navigation"
-
+import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useRouter } from "next/navigation";
 
 export default function Navbar() {
-  const router=useRouter();
-  const [isOpen, setIsOpen] = useState(false)
+  const router = useRouter();
+  const [isOpen, setIsOpen] = useState(false);
+  const { data, status } = useSession();
 
   return (
     <nav className="sticky top-0 z-50 bg-white text-black font-bold">
@@ -103,7 +109,7 @@ export default function Navbar() {
             Home
           </Link>
 
-          <DropdownMenu className={''}>
+          <DropdownMenu className={""}>
             <DropdownMenuTrigger className="flex items-center gap-1 text-sm   transition-colors text-primary">
               Category
               <ChevronDown className="h-4 w-4" />
@@ -124,26 +130,64 @@ export default function Navbar() {
             </DropdownMenuContent>
           </DropdownMenu>
 
-          <Link href="/about" className="text-sm   transition-colors text-primary">
+          <Link
+            href="/about"
+            className="text-sm   transition-colors text-primary"
+          >
             About
           </Link>
 
-          <Link href="/contact" className="text-sm   transition-colors text-primary">
+          <Link
+            href="/contact"
+            className="text-sm   transition-colors text-primary"
+          >
             Contact Us
           </Link>
         </div>
 
         {/* Login/Signup buttons on the right - visible on all screen sizes */}
         <div className="flex items-center gap-4">
-          <Button onClick={()=>router.push('/login')} variant="outline" size="icon" className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition">
-            Login
-          </Button>
-          <Button size="icon" variant="ghost" className=" cursor-pointer px-8 hover:bg-[#457B9D] hover:text-white border-2 border-[#457B9D] transition">
-            Sign Up
-          </Button>
+          {status === "unauthenticated" ? (
+            <>
+              <Button
+                onClick={() => router.push("/sign-in")}
+                variant="outline"
+                size="icon"
+                className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition"
+              >
+                Login
+              </Button>
+              <Button
+                onClick={() => router.push("/sign-up")}
+                size="icon"
+                variant="ghost"
+                className=" cursor-pointer px-8 hover:bg-[#457B9D] hover:text-white border-2 border-[#457B9D] transition"
+              >
+                Sign Up
+              </Button>
+            </>
+          ) : (
+            <>
+              <Button
+                onClick={() => router.replace("/profile")}
+                variant="outline"
+                size="icon"
+                className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition"
+              >
+                Profile
+              </Button>
+              <Button
+                onClick={() => signOut()}
+                variant="ghost"
+                size="icon"
+                className="cursor-pointer px-8  hover:bg-[#457B9D] hover:text-white border-2 border-[#457B9D] transition"
+              >
+                LogOut
+              </Button>
+            </>
+          )}
         </div>
       </div>
     </nav>
-  )
+  );
 }
-
