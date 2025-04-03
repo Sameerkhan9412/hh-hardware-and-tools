@@ -11,7 +11,7 @@ const products = () => {
   return (
     <div className='max-w-7xl mx-auto my-2'>
       <h1 className='text-center text-3xl font-bold'>Products By <ColourfulText text={"Cut Type"}/> Category</h1>
-      <div className=' py-10 rounded-2xl px-5 my-5'>
+      <div className=' py-2 rounded-2xl my-5'>
         {
           filteredList.map((product,index)=>(<ProductCard key={index} index={index} product={product} />))
         }

@@ -36,7 +36,7 @@ export default function Navbar() {
             <SheetContent side="left">
               <div className="flex flex-col gap-6 pt-6">
                 <Link
-                  href="/"
+                  href="/" prefetch
                   className="text-sm   transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
@@ -78,7 +78,7 @@ export default function Navbar() {
                 </div>
 
                 <Link
-                  href="/about"
+                  href="/about" prefetch
                   className="text-sm   transition-colors hover:text-primary hover:bg-[#1D3557]"
                   onClick={() => setIsOpen(false)}
                 >
@@ -86,7 +86,7 @@ export default function Navbar() {
                 </Link>
 
                 <Link
-                  href="/contact"
+                  href="/contact" prefetch
                   className="text-sm   transition-colors hover:text-primary"
                   onClick={() => setIsOpen(false)}
                 >
@@ -97,7 +97,7 @@ export default function Navbar() {
           </Sheet>
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl">
+          <Link href="/" prefetch className="flex items-center gap-2 font-bold text-xl">
             ⚙️ <span>HHHardware & Tools</span>
           </Link>
         </div>
@@ -105,7 +105,7 @@ export default function Navbar() {
         {/* Navigation links in the middle - hidden on mobile */}
         {/* <div className="hidden md:flex items-center justify-center gap-6 font-medium"> */}
         <div className=" flex justify-center items-center max-sm:hidden">
-          <Link href="/" className="text-sm  transition-colors text-primary">
+          <Link href="/" prefetch className="text-sm  transition-colors text-primary">
             Home
           </Link>
 
@@ -131,14 +131,14 @@ export default function Navbar() {
           </DropdownMenu>
 
           <Link
-            href="/about"
+            href="/about" prefetch
             className="text-sm   transition-colors text-primary"
           >
             About
           </Link>
 
           <Link
-            href="/contact"
+            href="/contact" prefetch
             className="text-sm   transition-colors text-primary"
           >
             Contact Us

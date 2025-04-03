@@ -4,7 +4,7 @@ import { AnimatePresence, motion } from "motion/react";
 
 export const Lens = ({
   children,
-  zoomFactor = 1.5,
+  zoomFactor = 3,
   lensSize = 170,
   isStatic = false,
   position = { x: 200, y: 150 },

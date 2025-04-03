@@ -65,10 +65,9 @@ export default function SignInForm() {
     <div className="flex justify-center items-center min-h-screen bg-gray-800">
       <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-md">
         <div className="text-center">
-          <h1 className="text-4xl font-extrabold tracking-tight lg:text-5xl mb-6">
+          <h1 className="text-2xl font-extrabold tracking-tight lg:text-3xl mb-2 text-gray-500">
             Welcome Back to HHHardware & Tools
           </h1>
-          <p className="mb-4">Sign in</p>
         </div>
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -77,8 +76,9 @@ export default function SignInForm() {
               control={form.control}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Email/Username</FormLabel>
-                  <Input {...field} />
+                  <FormLabel>Email</FormLabel>
+                  {/* <Input {...field} className={"outline-none active:outline-none"} /> */}
+                  <Input type="email" id="email" placeholder="Email" className={" focus-visible:ring-0 focus:ring-0"}/>
                   <FormMessage />
                 </FormItem>
               )}
@@ -89,18 +89,19 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
-                  <Input type="password" {...field} />
+                  <Input type="password" {...field} className={"focus-visible:ring-0 focus:ring-0"} placeholder="Password" />
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="w-full cursor-pointer" type="submit">
+            <Button className="w-full cursor-pointer bg-[#1D3557] text-white" type="submit" >
               Sign In
             </Button>
           </form>
         </Form>
-        <Button onClick={() => signIn("google", { callbackUrl: "/" })}>
-          Continue With Google
+        <Button onClick={() => signIn("google", { callbackUrl: "/" })} className={"w-full border-2 border-gray-400 cursor-pointer"}>
+          <img src="https://res.cloudinary.com/sameerkhan/image/upload/v1743684720/CSS/google-icon-logo-svgrepo-com_umpyh5.svg" width={20} height={20} />
+Continue With Google
         </Button>
         <div className="text-center mt-4">
           <p>

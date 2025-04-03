@@ -10,14 +10,14 @@ const ProductCard = ({product,index}) => {
     const [currImage, setCurrImage] = useState(product.images[0]);
     const [hovering, setHovering] = useState(false);
   return (
-    <div className="px-10 text-[#1D3557]">
-      <div className="grid grid-cols-2 gap-4 mx-4 px-10 my-5 items-center ">
+    <div className="px-1 md:px-4 lg:px-10 text-[#1D3557]">
+      <div className="grid grid-cols-1 gap-4 mx-2 my-5 items-center transition-all lg:grid-cols-2  ">
         <div
-          className={`grid grid-cols-5 gap-2 border-2 border-[#1D3557] p-2 rounded-xl  ${
-            index % 2 == 0 ? "order-1" : "order-2 "
-          } hover:shadow-2xl shadow-white transition-all`}
+          className={`grid grid-cols-1 md:grid-cols-5 gap-2  rounded-xl place-items-center  min-lg:${
+            index % 2 == 0 ? "order-1" : "order-2 " 
+          } hover:shadow-2xl shadow-white transition-all w-full `}
         >
-          <div className=" col-span-4 rounded-lg overflow-hidden h-96 flex items-center justify-center border-2 border-[#1D3557] bg-white ">
+          <div className="col-span-5 md:col-span-4 rounded-lg overflow-hidden h-96 flex items-center justify-center border-2 border-[#1D3557] bg-white  transition-all duration-700">
             <Lens hovering={hovering} setHovering={setHovering}>
               <img
                 src={currImage}
@@ -26,7 +26,7 @@ const ProductCard = ({product,index}) => {
               />
             </Lens>
           </div>
-          <div className="grid gap-2 ">
+          <div className="grid grid-cols-3 md:grid-rows-3 md:grid-cols-1 gap-2 place-items-center w-full mx-auto">
             {product.images.map((image, i) => (
               <div
                 onClick={() => setCurrImage(image)}
@@ -57,7 +57,7 @@ const ProductCard = ({product,index}) => {
         <h2 className="text-2xl  font-bold space-x-1 underline my-2">
           <ColourfulText text={"Features"} />
         </h2>
-        <div className="grid grid-cols-2 text-sm">
+        <div className="grid grid-cols-1 md:grid-cols-2 text-sm">
           {[1, 2, 3, 4, 5].map((list, index) => (
             <li key={index}>
               {" "}
