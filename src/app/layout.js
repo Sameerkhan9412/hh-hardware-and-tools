@@ -4,8 +4,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import AuthProvider from "@/context/AuthProvider";
 import { Toaster } from "@/components/ui/sonner";
-import Loading from "./loading";
 import { Suspense } from "react";
+import PageLoader from "@/components/PageLoader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -28,9 +28,10 @@ export default function RootLayout({ children }) {
       <AuthProvider>
         <body
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        >
-           <Suspense fallback={<Loading />}>
+          >
           <Navbar />
+          {/* <Loading/> */}
+          <PageLoader/>
           {children}
           <Footer />
           <Toaster
@@ -41,7 +42,6 @@ export default function RootLayout({ children }) {
               },
             }}
           />
-          </Suspense>
         </body>
       </AuthProvider>
     </html>

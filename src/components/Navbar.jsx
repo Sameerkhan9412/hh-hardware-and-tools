@@ -14,11 +14,13 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useRouter } from "next/navigation";
+import { categoryList } from "../../lib/utils";
 
 export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { data, status } = useSession();
+  console.log(categoryList);
 
   return (
     <nav className="sticky top-0 z-50 bg-white text-black font-bold">
@@ -26,68 +28,55 @@ export default function Navbar() {
         {/* Left side with logo and hamburger menu */}
         <div className="flex items-center gap-2">
           {/* Mobile menu button - visible only on mobile */}
-          <Sheet open={isOpen} onOpenChange={setIsOpen} className={""}>
+          <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
               <Button variant="ghost" size="icon">
                 <Menu className="h-5 w-5" />
                 <span className="sr-only">Toggle menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left">
+            <SheetContent side="left" className={"bg-white"}>
               <div className="flex flex-col gap-6 pt-6">
                 <Link
-                  href="/" prefetch
-                  className="text-sm   transition-colors hover:text-primary"
+                  href="/"
+                  prefetch
+                  className="  transition-colors text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   Home
                 </Link>
-
-                <div className="space-y-3">
-                  <div className="  text-sm cursor-pointer">Category</div>
-                  <div className="pl-4 space-y-2">
-                    <Link
-                      href="/category/1"
-                      className="block text-muted-foreground hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Category 1
-                    </Link>
-                    <Link
-                      href="/category/2"
-                      className="block text-sm text-muted-foreground hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Cateogory 2
-                    </Link>
-                    <Link
-                      href="/category/3"
-                      className="block text-sm text-muted-foreground hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Catoegory 3
-                    </Link>
-                    <Link
-                      href="/category/4"
-                      className="block text-sm text-muted-foreground hover:text-primary"
-                      onClick={() => setIsOpen(false)}
-                    >
-                      Cateogy 4
-                    </Link>
-                  </div>
-                </div>
+                <DropdownMenu className={"w-full"}>
+                  <DropdownMenuTrigger className="flex items-center gap-1  transition-colors text-primary ">
+                    Category
+                    <ChevronDown className="h-4 w-4" />
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent
+                    align="center"
+                    className={"bg-white w-full"}
+                  >
+                    {categoryList.map((cat, index) => (
+                      <DropdownMenuItem
+                        className={"hover:bg-gray-500 transition-all"}
+                      >
+                        <Link href={`/products/${cat.path}`}>{cat.title}</Link>
+                      </DropdownMenuItem>
+                    ))}
+                  </DropdownMenuContent>
+                </DropdownMenu>
 
                 <Link
-                  href="/about" prefetch
-                  className="text-sm   transition-colors hover:text-primary hover:bg-[#1D3557]"
+                  href="/about"
+                  prefetch
+                  className=" transition-colors text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   About
                 </Link>
 
                 <Link
-                  href="/contact" prefetch
-                  className="text-sm   transition-colors hover:text-primary"
+                  href="/contact"
+                  prefetch
+                  className=" transition-colors text-primary"
                   onClick={() => setIsOpen(false)}
                 >
                   Contact Us
@@ -97,7 +86,11 @@ export default function Navbar() {
           </Sheet>
 
           {/* Logo */}
-          <Link href="/" prefetch className="flex items-center gap-2 font-bold text-xl">
+          <Link
+            href="/"
+            prefetch
+            className="flex items-center gap-2 font-bold text-xl"
+          >
             ⚙️ <span>HHHardware & Tools</span>
           </Link>
         </div>
@@ -105,7 +98,11 @@ export default function Navbar() {
         {/* Navigation links in the middle - hidden on mobile */}
         {/* <div className="hidden md:flex items-center justify-center gap-6 font-medium"> */}
         <div className=" flex justify-center items-center max-sm:hidden">
-          <Link href="/" prefetch className="text-sm  transition-colors text-primary">
+          <Link
+            href="/"
+            prefetch
+            className="text-sm  transition-colors text-primary"
+          >
             Home
           </Link>
 
@@ -114,31 +111,28 @@ export default function Navbar() {
               Category
               <ChevronDown className="h-4 w-4" />
             </DropdownMenuTrigger>
-            <DropdownMenuContent align="center">
-              <DropdownMenuItem>
-                <Link href="/category/electronics">Category 1</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/category/clothing">Category 2</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/category/books">Category 3</Link>
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <Link href="/category/home">Category 3</Link>
-              </DropdownMenuItem>
+            <DropdownMenuContent align="center" className={"bg-white"}>
+              {categoryList.map((cat, index) => (
+                <DropdownMenuItem
+                  className={"hover:bg-gray-500 transition-all"}
+                >
+                  <Link href={`/products/${cat.path}`}>{cat.title}</Link>
+                </DropdownMenuItem>
+              ))}
             </DropdownMenuContent>
           </DropdownMenu>
 
           <Link
-            href="/about" prefetch
+            href="/about"
+            prefetch
             className="text-sm   transition-colors text-primary"
           >
             About
           </Link>
 
           <Link
-            href="/contact" prefetch
+            href="/contact"
+            prefetch
             className="text-sm   transition-colors text-primary"
           >
             Contact Us

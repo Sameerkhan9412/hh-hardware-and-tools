@@ -1,3 +1,4 @@
+import ContactForm from "@/components/ContactForm";
 import React from "react";
 // import img from "https://www.solveurpro.com/assets/male-educator-S-HSRWGs.jpg";
 import { FaPhone } from "react-icons/fa";
@@ -68,38 +69,7 @@ const Contact = () => {
             </div>
             </div>
         </div>
-        <form action="" className="bg-white text-black p-4 gap-4 mb-6 col-span-5 md:col-span-3">
-          <h1 className=" font-bold text-2xl text-black mb-6">send us a message</h1>
-          <div className="grid grid-cols-2 gap-4">
-            <label htmlFor="fullname">Full Name <br/>
-              <input type="text"  id="fullname" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="Name" />
-            </label>
-            <label htmlFor="email">Email<br/>
-              <input type="email"  id="email" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="Email" />
-            </label>
-          </div>
-          <div className="grid grid-cols-2 gap-4 mt-4">
-            <label htmlFor="mobile">Mobile <br/>
-              <input type="tel" placeholder="+1 234 567 890" pattern="[+0-9\s-]+"  id="mobile" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
-            </label>
-            <label htmlFor="product">Product<br/>
-              <input type="text"  id="product" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="files" />
-            </label>
-          </div>
-          <div className="grid grid-cols-1 gap-4 mt-4">
-            <label htmlFor="subject">Location <br/>
-              <input type="text" placeholder="uttar pradesh, aligarh"  id="subject" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
-            </label>
-          </div>
-          <div className="grid grid-cols-1 gap-4 mt-4">
-            <label htmlFor="message">Message <br/>
-             <textarea name="message" id="message" placeholder="Message" rows={4} className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"></textarea>
-            </label>
-          </div>
-          
-          <button type="submit" className="bg-red-600 text-white p-2 hover:bg-red-500 cursor-pointer px-4 rounded-lg mt-6 transition-all ">Send Message</button>
-
-        </form>
+       <ContactForm/>
       </div>
     </div>
   );

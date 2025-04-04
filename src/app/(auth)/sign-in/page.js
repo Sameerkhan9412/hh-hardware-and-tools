@@ -17,6 +17,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { signInSchema } from "@/schemas/signInSchema";
 import { toast } from "sonner";
+import { Loader2 } from "lucide-react"; // ✅ Import Loader Icon
 
 export default function SignInForm() {
   const router = useRouter();
@@ -30,33 +31,28 @@ export default function SignInForm() {
   });
 
   const onSubmit = async (data) => {
+    console.log("Data submitted:", data);
+
     const result = await signIn("credentials", {
       redirect: false,
       identifier: data.identifier,
       password: data.password,
     });
+
     console.log(result);
+
     if (result?.error) {
-      if (result.error === "CredentialsSignin") {
-        toast("Login Failed", {
-          description: "Incorrect username or password",
-          variant: "destructive",
-          action: {
-            label: "Close",
-          },
-        });
-      } else {
-        toast("Error", {
-          description: result.error,
-          variant: "destructive",
-          action: {
-            label: "Close",
-          },
-        });
-      }
+      toast.error("Invalid Credentials", {
+        description: "Please check your email and password.",
+        action: { label: "Retry" },
+      });
+      return;
     }
 
     if (result?.url) {
+      toast.success("Login Successful", {
+        description: "Redirecting to your profile...",
+      });
       router.replace("/profile");
     }
   };
@@ -70,15 +66,25 @@ export default function SignInForm() {
           </h1>
         </div>
         <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <form
+            onSubmit={form.handleSubmit(onSubmit)}
+            onKeyDown={(e) => e.key === "Enter" && onSubmit()} // ✅ Enter Key Submission
+            className="space-y-6"
+          >
             <FormField
               name="identifier"
               control={form.control}
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Email</FormLabel>
-                  {/* <Input {...field} className={"outline-none active:outline-none"} /> */}
-                  <Input type="email" id="email" placeholder="Email" className={" focus-visible:ring-0 focus:ring-0"}/>
+                  <Input
+                    {...field}
+                    type="email"
+                    id="email"
+                    placeholder="Email"
+                    className="focus-visible:ring-0 focus:ring-0"
+                    autoFocus // ✅ Auto-focus on Email Field
+                  />
                   <FormMessage />
                 </FormItem>
               )}
@@ -89,19 +95,38 @@ export default function SignInForm() {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>Password</FormLabel>
-                  <Input type="password" {...field} className={"focus-visible:ring-0 focus:ring-0"} placeholder="Password" />
+                  <Input
+                    type="password"
+                    {...field}
+                    className="focus-visible:ring-0 focus:ring-0"
+                    placeholder="Password"
+                  />
                   <FormMessage />
                 </FormItem>
               )}
             />
-            <Button className="w-full cursor-pointer bg-[#1D3557] text-white" type="submit" >
-              Sign In
+            <Button
+              className="w-full cursor-pointer bg-[#1D3557] text-white flex justify-center items-center gap-2"
+              type="submit"
+              disabled={form.formState.isSubmitting} // ✅ Disable Button While Submitting
+            >
+              {form.formState.isSubmitting && (
+                <Loader2 className="animate-spin w-5 h-5" /> // ✅ Loader Icon
+              )}
+              {form.formState.isSubmitting ? "Signing In..." : "Sign In"}
             </Button>
           </form>
         </Form>
-        <Button onClick={() => signIn("google", { callbackUrl: "/" })} className={"w-full border-2 border-gray-400 cursor-pointer"}>
-          <img src="https://res.cloudinary.com/sameerkhan/image/upload/v1743684720/CSS/google-icon-logo-svgrepo-com_umpyh5.svg" width={20} height={20} />
-Continue With Google
+        <Button
+          onClick={() => signIn("google", { callbackUrl: "/" })}
+          className="w-full border-2 border-gray-400 cursor-pointer flex items-center gap-2"
+        >
+          <img
+            src="https://res.cloudinary.com/sameerkhan/image/upload/v1743684720/CSS/google-icon-logo-svgrepo-com_umpyh5.svg"
+            width={20}
+            height={20}
+          />
+          Continue With Google
         </Button>
         <div className="text-center mt-4">
           <p>
