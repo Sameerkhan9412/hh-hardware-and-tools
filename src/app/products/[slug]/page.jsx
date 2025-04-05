@@ -6,7 +6,6 @@ import { productList, productsList } from '../../../../lib/utils';
 import ProductCard from '@/components/ProductCard';
 // import Product from '@/components/ProductCard';
 const products = () => {
-  console.log("produc ",productList[0].size)
   const filteredList=productList[0].products;
   return (
     <div className='max-w-7xl mx-auto my-2'>

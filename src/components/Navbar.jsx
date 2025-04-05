@@ -20,7 +20,6 @@ export default function Navbar() {
   const router = useRouter();
   const [isOpen, setIsOpen] = useState(false);
   const { data, status } = useSession();
-  console.log(categoryList);
 
   return (
     <nav className="sticky top-0 z-50 bg-white text-black font-bold">

@@ -6,11 +6,9 @@ const ContactForm = () => {
     const [formData,setFormData]=useState({name:"",email:"",mobile:"",product:"",location:"",message:""});
     const submitForm = async (e) => {
       e.preventDefault();
-      console.log("Submitting Form Data:", formData);
   
       try {
           const response = await axios.post("/api/contact", formData);
-          console.log("Response:", response.data);
   
           if (response.data.success) {
               alert("Your message has been sent successfully!");

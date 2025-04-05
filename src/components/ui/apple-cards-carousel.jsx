@@ -169,7 +169,6 @@ export const Card = ({
   useOutsideClick(containerRef, () => handleClose());
 
   const handleNavigate=({path})=>{
-    console.log("path",path)
     router.push("products/"+path);
   }
   const handleOpen = () => {

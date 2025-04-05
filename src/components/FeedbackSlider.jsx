@@ -14,7 +14,6 @@ function FeedbackSlider() {
   const fetchReviews = async () => {
     try {
       const response = await axios.get("/api/reviews");
-      console.log("feedback response", response);
       if (response.data.success) {
         setReviews(response.data.reviews);
       } else {
