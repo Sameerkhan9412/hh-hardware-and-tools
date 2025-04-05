@@ -1,72 +1,156 @@
-'use client'
+'use client';
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import { toast } from 'react-hot-toast';
 
 const ContactForm = () => {
-    const [formData,setFormData]=useState({name:"",email:"",mobile:"",product:"",location:"",message:""});
-    const submitForm = async (e) => {
-      e.preventDefault();
-  
-      try {
-          const response = await axios.post("/api/contact", formData);
-  
-          if (response.data.success) {
-              alert("Your message has been sent successfully!");
-  
-              // Reset form fields
-              setFormData({
-                name: "",
-                email: "",
-                mobile: "",
-                product: "",
-                location: "",
-                message: ""
-            });
-          } else {
-              alert("Failed to send message. Please try again.");
-          }
-      } catch (error) {
-          console.error("Error submitting form:", error);
-          alert("Something went wrong. Please try again later.");
-      }
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    mobile: "",
+    product: "",
+    location: "",
+    message: ""
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-  
-    
+
+  const validateForm = () => {
+    const { name, email, mobile, product, location, message } = formData;
+    if (!name || !email || !mobile || !product || !location || !message) {
+      toast.error("Please fill out all fields.");
+      return false;
+    }
+    return true;
+  };
+
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    setIsSubmitting(true);
+    toast.loading("Sending message...");
+
+    try {
+      const response = await axios.post("/api/contact", formData);
+      if (response.data.success) {
+        toast.dismiss();
+        toast.success("Message sent successfully!");
+
+        setFormData({
+          name: "",
+          email: "",
+          mobile: "",
+          product: "",
+          location: "",
+          message: ""
+        });
+      } else {
+        toast.dismiss();
+        toast.error("Failed to send message.");
+      }
+    } catch (error) {
+      toast.dismiss();
+      console.error("Error submitting form:", error);
+      toast.error("Something went wrong.");
+    }
+
+    setIsSubmitting(false);
+  };
 
   return (
-    <form onSubmit={(e)=>submitForm(e)}  className="bg-white text-black p-4 gap-4 mb-6 col-span-5 md:col-span-3">
-    <h1 className=" font-bold text-2xl text-black mb-6">send us a message</h1>
-    <div className="grid grid-cols-2 gap-4">
-      <label htmlFor="fullname">Full Name <br/>
-        <input type="text"  id="fullname" onChange={(e)=>setFormData({...formData,name:e.target.value})} className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="Name" name="name" />
-      </label>
-      <label htmlFor="email">Email<br/>
-        <input type="email"  id="email" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" name='email' placeholder="Email" onChange={(e)=>setFormData({...formData,email:e.target.value})} />
-      </label>
-    </div>
-    <div className="grid grid-cols-2 gap-4 mt-4">
-      <label htmlFor="mobile">Mobile <br/>
-        <input type="tel" placeholder="+1 234 567 890" pattern="[+0-9\s-]+"  id="mobile" className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" name="mobile" onChange={(e)=>setFormData({...formData,mobile:e.target.value})}  />
-      </label>
-      <label htmlFor="product">Product<br/>
-        <input type="text"  id="product" name='product' onChange={(e)=>setFormData({...formData,product:e.target.value})} className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]" placeholder="files" />
-      </label>
-    </div>
-    <div className="grid grid-cols-1 gap-4 mt-4">
-      <label htmlFor="subject">Location <br/>
-        <input type="text" placeholder="uttar pradesh, aligarh"  id="subject" name='location' onChange={(e)=>setFormData({...formData,location:e.target.value})} className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"  />
-      </label>
-    </div>
-    <div className="grid grid-cols-1 gap-4 mt-4">
-      <label htmlFor="message">Message <br/>
-       <textarea name="message" id="message" onChange={(e)=>setFormData({...formData,message:e.target.value})} placeholder="Message" rows={4} className="border-2 outline-none w-full p-2 rounded-lg border-[#E0E0E0]"></textarea>
-      </label>
-    </div>
-    
-    <button type="submit" className="bg-red-600 text-white p-2 hover:bg-red-500 cursor-pointer px-4 rounded-lg mt-6 transition-all ">Send Message</button>
+    <form onSubmit={submitForm} className="bg-white text-black p-4 gap-4 mb-6 col-span-5 md:col-span-3">
+      <h1 className="font-bold text-2xl mb-6">Send us a message</h1>
 
-  </form>
-  )
-}
+      <div className="grid grid-cols-2 gap-4">
+        <label>Full Name<br/>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            placeholder="Name"
+          />
+        </label>
+        <label>Email<br/>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            placeholder="Email"
+          />
+        </label>
+      </div>
 
-export default ContactForm
+      <div className="grid grid-cols-2 gap-4 mt-4">
+        <label>Mobile<br/>
+          <input
+            type="tel"
+            name="mobile"
+            value={formData.mobile}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            placeholder="+91 9876543210"
+            pattern="[+0-9\s-]+"
+          />
+        </label>
+        <label>Product<br/>
+          <input
+            type="text"
+            name="product"
+            value={formData.product}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            placeholder="e.g. Hosting Service"
+          />
+        </label>
+      </div>
+
+      <div className="mt-4">
+        <label>Location<br/>
+          <input
+            type="text"
+            name="location"
+            value={formData.location}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            placeholder="e.g. Aligarh, Uttar Pradesh"
+          />
+        </label>
+      </div>
+
+      <div className="mt-4">
+        <label>Message<br/>
+          <textarea
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            className="border-2 w-full p-2 rounded-lg border-[#E0E0E0]"
+            rows={4}
+            placeholder="Your message here..."
+          ></textarea>
+        </label>
+      </div>
+
+      <button
+        type="submit"
+        disabled={isSubmitting}
+        className={`mt-6 bg-red-600 text-white px-4 p-2 rounded-lg hover:bg-red-500 transition-all ${
+          isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+        }`}
+      >
+        {isSubmitting ? "Submitting..." : "Send Message"}
+      </button>
+    </form>
+  );
+};
+
+export default ContactForm;

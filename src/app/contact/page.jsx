@@ -1,4 +1,6 @@
+"use client"
 import ContactForm from "@/components/ContactForm";
+import FeedbackSlider from "@/components/FeedbackSlider";
 import React from "react";
 // import img from "https://www.solveurpro.com/assets/male-educator-S-HSRWGs.jpg";
 import { FaPhone } from "react-icons/fa";
@@ -71,6 +73,7 @@ const Contact = () => {
         </div>
        <ContactForm/>
       </div>
+      <FeedbackSlider/>
     </div>
   );
 };

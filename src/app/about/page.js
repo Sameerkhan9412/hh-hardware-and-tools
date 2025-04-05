@@ -1,3 +1,5 @@
+"use client"
+import FeedbackSlider from '@/components/FeedbackSlider'
 import React from 'react'
 const About = () => {
     const aboutSection=[
@@ -37,6 +39,7 @@ const About = () => {
                 ))
             }
         </div>
+        <FeedbackSlider/>
     </div>
   )
 }

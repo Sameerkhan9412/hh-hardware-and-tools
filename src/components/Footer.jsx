@@ -9,43 +9,34 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* About Us Column */}
           <div>
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">About Us</h3>
+            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Pages</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  H.H Files
+                <Link href="/" className="hover:text-[#A8DADC] transition-colors">
+                  Home
+                </Link>
+              </li>
+              <li>
+                <Link href="/products/half-round-files" className="hover:text-[#A8DADC] transition-colors">
+                  Products
+                </Link>
+              </li>
+              <li>
+                <Link href="/about" className="hover:text-[#A8DADC] transition-colors">
+                  About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="contact" className="hover:text-[#A8DADC] transition-colors">
+                  Contact Us
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Raymond Group
+                  Feedbacks
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Manufacturing Facilities
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Quality Assurance
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Industry Recognition
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Whistleblower Policies
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Testimonials
-                </Link>
-              </li>
+              
             </ul>
           </div>
 
@@ -83,31 +74,41 @@ export default function Footer() {
 
           {/* Products Column */}
           <div>
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Products</h3>
+            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Category</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Files
+                  Flat Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Cutting Tools
+                  Hand Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Hand Tools
+                  Round Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Power Tools
+                  Half Round Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Power Tool Accessories
+                  Traingle Files
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
+                  Square Files
+                </Link>
+              </li>
+              <li>
+                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
+                  Pillar Narrow Files
                 </Link>
               </li>
             </ul>
@@ -115,24 +116,21 @@ export default function Footer() {
 
           {/* Follow Us Column */}
           <div>
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Follow Us</h3>
+            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Products</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors flex items-center gap-2">
-                  <Youtube size={18} />
-                  Youtube
+                  Bustard Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors flex items-center gap-2">
-                  <Linkedin size={18} />
-                  LinkedIn
+                  2nd Cut Files
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors flex items-center gap-2">
-                  <Facebook size={18} />
-                  Facebook
+                 Flat Smooth Files
                 </Link>
               </li>
             </ul>
@@ -140,43 +138,24 @@ export default function Footer() {
 
           {/* Support Column */}
           <div>
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Support</h3>
+            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Blog
+                8077351916
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Contact Us
+                anasmohd889@gmail.com
                 </Link>
               </li>
               <li>
                 <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Warranty Registration
+                  Whatsapp
                 </Link>
               </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Downloads
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Subscribe
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Service Network
-                </Link>
-              </li>
-              <li>
-                <Link href="#" className="hover:text-[#A8DADC] transition-colors">
-                  Privacy Policy
-                </Link>
-              </li>
+              
             </ul>
           </div>
         </div>
