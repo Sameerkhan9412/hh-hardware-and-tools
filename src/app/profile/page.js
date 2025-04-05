@@ -1,15 +1,23 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useSession } from "next-auth/react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import Loading from "../loading";
 import { useRouter } from "next/navigation";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 const ProfilePage = () => {
   const { data: session, status } = useSession();
   const router = useRouter();
+  const [isReviewOpen, setIsReviewOpen] = useState(false);
+  const [review, setReview] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   if (status === "loading") {
     return <Loading />;
   }
@@ -18,99 +26,88 @@ const ProfilePage = () => {
     return (
       <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 px-4">
         <div className="text-center">
-          <div className="mb-6">
-            <svg
-              className="h-24 w-24 text-red-500 mx-auto"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M12 15v2m0 0v2m0-2h2m-2 0H9m3-3V9m0 0V7m0 2h2m-2 0H9"
-              />
-              <circle cx="12" cy="12" r="10" strokeWidth="2" />
-              <path
-                d="M15 9l-6 6M9 9l6 6"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-              />
-            </svg>
-          </div>
-
-          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">
-            Access Denied
-          </h1>
-
-          <p className="text-lg text-gray-600 mb-8">
-            You need to be signed in to view this page
-          </p>
-
-          <div className="space-y-4">
-            <button
-              onClick={() => router.replace("/sign-in")}
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-            >
-              Sign In
-            </button>
-
-            <div>
-              <a
-                href="/"
-                className="text-indigo-600 hover:text-indigo-500 font-medium inline-flex items-center"
-              >
-                <svg
-                  className="w-4 h-4 mr-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
-                  />
-                </svg>
-                Return to Home
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-12 text-center text-sm text-gray-500">
-          If you believe this is an error, please contact support
+          <h1 className="text-4xl font-extrabold text-gray-900 tracking-tight mb-2">Access Denied</h1>
+          <p className="text-lg text-gray-600 mb-8">You need to be signed in to view this page</p>
+          <Button onClick={() => router.replace("/sign-in")} className="bg-indigo-600 hover:bg-indigo-700">
+            Sign In
+          </Button>
         </div>
       </div>
     );
   }
 
+  const handleSubmitReview = async () => {
+    if (!review.trim()) {
+      toast.error("Please write a review before submitting!");
+      return;
+    }
+
+    const data = {
+      userId: session?.user?._id,
+      username: session?.user?.username,
+      email: session?.user?.email,
+      review,
+    };
+
+    setIsSubmitting(true);
+    try {
+      await axios.post("/api/reviews", data);
+      toast.success("Review submitted successfully");
+      setReview("");
+      setIsReviewOpen(false);
+    } catch (error) {
+      console.error("Error submitting review:", error);
+      toast.error("Failed to submit review. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="flex justify-center items-center h-screen bg-[#1D3557]">
-      <Card className="w-96 p-4 bg-white">
+      <Card className="w-96 p-4 bg-white shadow-lg rounded-lg">
         <CardHeader className="flex flex-col items-center">
           <Avatar className="w-24 h-24 bg-gray-200">
-            <AvatarImage
-              src={session?.user?.image || ""}
-              alt="Profile Picture"
-            />
-            <AvatarFallback>
-              {session?.user?.username?.charAt(0).toUpperCase() || "U"}
-            </AvatarFallback>
+            <AvatarImage src={session?.user?.image || ""} alt="Profile Picture" />
+            <AvatarFallback>{session?.user?.username?.charAt(0).toUpperCase() || "U"}</AvatarFallback>
           </Avatar>
-          <CardTitle className="mt-4 text-lg">
-            Username: {session?.user?.username}
-          </CardTitle>
+          <CardTitle className="mt-4 text-lg font-semibold">{session?.user?.username}</CardTitle>
         </CardHeader>
-        <CardContent>
-          <p className="text-center text-gray-600">
-            Email: {session?.user?.email}
-          </p>
+        <CardContent className="text-center">
+          <p className="text-gray-600">{session?.user?.email}</p>
+          <div className="mt-4">
+            <Button onClick={() => setIsReviewOpen(true)} className="bg-blue-500 hover:bg-blue-600 text-white">
+              Write a Review
+            </Button>
+          </div>
         </CardContent>
       </Card>
+
+      {/* Review Modal */}
+      <Dialog open={isReviewOpen} onOpenChange={setIsReviewOpen}>
+        <DialogContent className="bg-blue-500 p-6 rounded-lg shadow-lg">
+          <DialogHeader>
+            <DialogTitle className="text-white text-lg font-semibold">Write a Review</DialogTitle>
+          </DialogHeader>
+          <textarea
+            className="w-full p-2 border border-white rounded-md text-black focus:outline-none focus:ring-2 focus:ring-blue-300"
+            rows="4"
+            placeholder="Write your review here..."
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            disabled={isSubmitting}
+          ></textarea>
+          <div className="flex justify-end mt-4">
+            <Button 
+              onClick={handleSubmitReview} 
+              className="bg-gray-700 text-white hover:bg-gray-500 transition-all"
+              disabled={isSubmitting}
+            >
+              {isSubmitting ? "Submitting..." : "Submit Review"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };

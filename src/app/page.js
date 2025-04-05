@@ -1,10 +1,12 @@
+'use client'
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollisionDemo";
+import FeedbackSlider from "@/components/FeedbackSlider";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
 import { ProductCategory } from "@/components/ProductsCategory";
-import { Reviews } from "@/components/Reviews";
 import { TypewriterEffectSmoothDemo } from "@/components/TypewriterEffectSmoothDemo";
 import Link from "next/link";
+
 
 export default function Home() {
   return (
@@ -13,7 +15,7 @@ export default function Home() {
       <HeroSection/>
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
-      {/* <Reviews className={"w-screen bg-black"}/> */}
+      <FeedbackSlider className="w-full"/>
     </div>
   );
 }
