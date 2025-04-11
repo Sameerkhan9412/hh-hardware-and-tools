@@ -31,7 +31,7 @@ const ProductCard = ({product,index}) => {
               <div
                 onClick={() => setCurrImage(image)}
                 key={i}
-                className="rounded-lg overflow-hidden cursor-pointer border-[#1D3557] border-2 h-fit "
+                className="rounded-lg overflow-hidden cursor-pointer border-[#1D3557] border-2 h-fit aspect-square "
               >
                 <img
                   src={image}
@@ -50,7 +50,6 @@ const ProductCard = ({product,index}) => {
           <div className="mt-4 relative z-20 text-sm text-[#1D3557] font-semibold">
             {product.description}
           </div>
-          {/* </CardSpotlight> */}
         </div>
       </div>
       <div className="  col-span-2">
@@ -58,10 +57,9 @@ const ProductCard = ({product,index}) => {
           <ColourfulText text={"Features"} />
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 text-sm">
-          {[1, 2, 3, 4, 5].map((list, index) => (
+          {product?.features?.map((list, index) => (
             <li key={index}>
-              {" "}
-              Hardened tip to avoid breakage, slipping and twisting.
+              {list}
             </li>
           ))}
         </div>
