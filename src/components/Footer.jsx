@@ -253,10 +253,10 @@ export default function Footer() {
             (INDIA) | Email: anasmohd889@gmail.com
           </p>
 
-          <p className="text-center text-sm border-t border-gray-800 pt-4 w-full">
+          <Link href={"https://portfoliobysameer.vercel.app/"} target="_blank" className="text-center text-sm border-t border-gray-800 pt-4 w-full">
             Design And Deveoped By 💖 Sameer Khan Copyright 2025 by H.H Files &
             Tools | All rights reserved
-          </p>
+          </Link>
         </div>
       </div>
     </footer>
