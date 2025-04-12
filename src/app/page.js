@@ -1,5 +1,6 @@
 'use client'
 import { BackgroundBeamsWithCollisionDemo } from "@/components/BackgroundBeamsWithCollisionDemo";
+import Brands from "@/components/Brands";
 import FeedbackSlider from "@/components/FeedbackSlider";
 import Footer from "@/components/Footer";
 import HeroSection from "@/components/HeroSection";
@@ -16,6 +17,7 @@ export default function Home() {
       <ProductCategory/>
       <TypewriterEffectSmoothDemo/>
       <FeedbackSlider className="w-full"/>
+      <Brands/>
     </div>
   );
 }

@@ -33,12 +33,12 @@ const Products = () => {
           <ProductCard key={index} index={index} product={product} />
         ))}
 
-        <h2 className='text-2xl font-bold underline my-2'>
+        <h2 className='text-2xl font-bold underline my-2 mx-2'>
           <ColourfulText text={'Specifications'} />
         </h2>
 
-        <div className='w-full flex justify-center'>
-          <img src={filteredItem?.size || productList[0].size} alt='' className='w-96' />
+        <div className='w-full flex justify-center px-2 md:px-4 lg:w-1/2 lg:mx-auto'>
+          <img src={filteredItem?.size || productList[0].size} alt='' className='w-full' />
         </div>
       </div>
     </div>
