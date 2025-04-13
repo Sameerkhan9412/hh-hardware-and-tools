@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-black text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8">
           {/* About Us Column */}
           <div>
             <h3 className="text-[#457B9D] font-semibold text-xl mb-4">Pages</h3>
@@ -105,8 +105,8 @@ export default function Footer() {
           </div>
 
           {/* Products Column */}
-          <div className=" col-span-2">
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4 text-center">
+          <div className="col-span-2">
+            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">
               Category
             </h3>
             <ul className="space-y-2 grid grid-cols-2">
@@ -115,87 +115,6 @@ export default function Footer() {
                   <Link href={`/products/${cat.path}`}>{cat.title}</Link>
                 </li>
               ))}
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Hand Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Round Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Half Round Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Traingle Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Square Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
-                >
-                  Pillar Narrow Files
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          {/* Follow Us Column */}
-          <div>
-            <h3 className="text-[#457B9D] font-semibold text-xl mb-4">
-              Products
-            </h3>
-            <ul className="space-y-2">
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors flex items-center gap-2"
-                >
-                  Bustard Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors flex items-center gap-2"
-                >
-                  2nd Cut Files
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors flex items-center gap-2"
-                >
-                  Flat Smooth Files
-                </Link>
-              </li>
             </ul>
           </div>
 
@@ -207,23 +126,23 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
+                  href="tel:8077351916"
+                  className="hover:text-[#A8DADC] transition-color"
                 >
                   8077351916
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
-                  className="hover:text-[#A8DADC] transition-colors"
+                  href="mailto:anasmohd889@gmail.com"
+                  className="hover:text-[#A8DADC] transition-color"
                 >
                   anasmohd889@gmail.com
                 </Link>
               </li>
               <li>
                 <Link
-                  href="#"
+                  href="https://wa.me/918077351916"
                   className="hover:text-[#A8DADC] transition-colors"
                 >
                   Whatsapp
@@ -253,7 +172,11 @@ export default function Footer() {
             (INDIA) | Email: anasmohd889@gmail.com
           </p>
 
-          <Link href={"https://portfoliobysameer.vercel.app/"} target="_blank" className="text-center text-sm border-t border-gray-800 pt-4 w-full">
+          <Link
+            href={"https://portfoliobysameer.vercel.app/"}
+            target="_blank"
+            className="text-center text-sm border-t border-gray-800 pt-4 w-full"
+          >
             Design And Deveoped By 💖 Sameer Khan Copyright 2025 by H.H Files &
             Tools | All rights reserved
           </Link>

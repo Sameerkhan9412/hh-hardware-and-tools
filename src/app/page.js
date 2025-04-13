@@ -11,7 +11,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative overflow-x-hidden">
       <BackgroundBeamsWithCollisionDemo/>
       <HeroSection/>
       <ProductCategory/>

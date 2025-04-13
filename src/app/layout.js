@@ -27,10 +27,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <AuthProvider>
-        <body
-          className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-          >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-w-[320px] overflow-x-hidden`}>
+
           <Navbar />
           {/* <Loading/> */}
           <PageLoader/>

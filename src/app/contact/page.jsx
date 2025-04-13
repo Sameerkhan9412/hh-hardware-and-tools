@@ -1,6 +1,7 @@
 "use client"
 import ContactForm from "@/components/ContactForm";
 import FeedbackSlider from "@/components/FeedbackSlider";
+import Link from "next/link";
 import React from "react";
 // import img from "https://www.solveurpro.com/assets/male-educator-S-HSRWGs.jpg";
 import { FaPhone } from "react-icons/fa";
@@ -29,7 +30,7 @@ const Contact = () => {
               Just pick up the phone to chat with a
               member of our  team.
             </span>
-            <span className="text-[#1D3557] font-bold">8077351916</span>
+            <Link href="tel:8077351916" className="text-[#1D3557] font-bold">8077351916</Link>
           </div>
           <div className="shadow-[0px_10px_20px_rgba(0,0,0,1)] px-4 py-8 flex flex-col gap-2 items-center justify-center h-full rounded-lg bg-white">
             <FaHeadphonesSimple className="text-4xl text-[#1D3557]" />
@@ -37,9 +38,9 @@ const Contact = () => {
             <span className="text-center">
               Need a little help? Our support team is here for you.
             </span>
-            <span className="bg-[#1D3557] text-white font-bold cursor-pointer py-2 px-4 rounded-lg transition-colors hover:bg-red-400">
+            <Link href="mailto:anasmohd889@gmail.com" className="bg-[#1D3557] text-white font-bold cursor-pointer py-2 px-4 rounded-lg transition-colors hover:bg-red-400">
               Contact Support
-            </span>
+            </Link>
           </div>
         </div>
         <img

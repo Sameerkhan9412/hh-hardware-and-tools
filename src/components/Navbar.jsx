@@ -148,7 +148,7 @@ export default function Navbar() {
                 size="icon"
                 className="cursor-pointer px-8 bg-[#457B9D] text-white hover:bg-[#A8DADC] transition"
               >
-                Login
+                Log In
               </Button>
               <Button
                 onClick={() => router.push("/sign-up")}
@@ -175,7 +175,7 @@ export default function Navbar() {
                 size="icon"
                 className="cursor-pointer px-8  hover:bg-[#457B9D] hover:text-white border-2 border-[#457B9D] transition"
               >
-                LogOut
+                Log Out
               </Button>
             </>
           )}
