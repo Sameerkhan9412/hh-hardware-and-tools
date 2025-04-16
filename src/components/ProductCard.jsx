@@ -45,7 +45,8 @@ const ProductCard = ({product,index}) => {
         <div className={`${index % 2 == 0 ? "order-2" : "order-1"}`}>
           {/* <CardSpotlight className="h-full w-full"> */}
           <h2 className="text-2xl font-bold relative z-20 mt-2 space-x-0.5">
-            <ColourfulText text={product.name} />
+            {/* <ColourfulText text={product.name} /> */}
+            {product?.name}
           </h2>
           <div className="mt-4 relative z-20 text-sm text-[#1D3557] font-semibold">
             {product.description}
@@ -54,7 +55,8 @@ const ProductCard = ({product,index}) => {
       </div>
       <div className="  col-span-2">
         <h2 className="text-2xl  font-bold space-x-1 underline my-2">
-          <ColourfulText text={"Features"} />
+          {/* <ColourfulText text={"Features"} /> */}
+          Features
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 text-sm">
           {product?.features?.map((list, index) => (

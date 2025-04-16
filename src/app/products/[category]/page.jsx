@@ -25,7 +25,8 @@ const Products = () => {
     <div className='max-w-7xl mx-auto my-2'>
       <h1 className='text-center text-3xl font-bold'>
         Products By{' '}
-        <ColourfulText text={`${filteredItem?.category || category}`} /> Category
+        {/* <ColourfulText text={`${filteredItem?.category || category}`} /> Category */}
+        {`${filteredItem?.category}`} Category
       </h1>
 
       <div className='py-2 rounded-2xl my-5'>
@@ -34,7 +35,8 @@ const Products = () => {
         ))}
 
         <h2 className='text-2xl font-bold underline my-2 mx-2'>
-          <ColourfulText text={'Specifications'} />
+          {/* <ColourfulText text={'Specifications'} /> */}
+          Specifications
         </h2>
 
         <div className='w-full flex justify-center px-2 md:px-4 lg:w-1/2 lg:mx-auto'>
